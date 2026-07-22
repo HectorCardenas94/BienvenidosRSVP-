@@ -281,3 +281,70 @@ function showPage(title, html) {
     `;
 
 }
+
+function showEditFamily(family = null) {
+
+    contentArea.innerHTML = `
+
+        <h2>Edit Family</h2>
+
+        <br>
+
+        <label>Family Name</label>
+
+        <input
+            id="editFamilyName"
+            type="text"
+            value="${family?.familyName || ""}">
+
+        <br><br>
+
+        <h3>Guests</h3>
+
+        <div id="editGuestList">
+
+        </div>
+
+        <br>
+
+        <button id="editAddGuestButton">
+
+            + Add Guest
+
+        </button>
+
+        <br><br>
+
+        <button id="updateFamilyButton">
+
+            Save Changes
+
+        </button>
+
+    `;
+
+    document
+        .getElementById("editAddGuestButton")
+        .addEventListener("click", addEditGuest);
+
+}
+
+function addEditGuest() {
+
+    const guestList =
+        document.getElementById("editGuestList");
+
+    const input =
+        document.createElement("input");
+
+    input.type = "text";
+
+    input.placeholder = "Guest Name";
+
+    input.className = "guestName";
+
+    input.style.marginTop = "10px";
+
+    guestList.appendChild(input);
+
+}
