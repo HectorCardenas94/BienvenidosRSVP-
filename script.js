@@ -42,6 +42,14 @@ async function searchFamily(familyName) {
 
 const familySnap = await getDoc(familyRef);
 
+console.log("Searching document:", familyName.toLowerCase());
+
+console.log("Exists?", familySnap.exists());
+
+if (familySnap.exists()) {
+    console.log(familySnap.data());
+}
+
 if (!familySnap.exists()) {
 
     alert("Invitation not found.");
