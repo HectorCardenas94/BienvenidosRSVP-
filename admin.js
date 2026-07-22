@@ -173,9 +173,18 @@ function getFamilyData() {
         if (name !== "") {
 
             guests.push({
-                name: name,
-                attending: null
-            });
+
+    firstName: name,
+
+    lastName: "",
+
+    attending: null,
+
+    mealChoice: "",
+
+    plusOne: false
+
+});
 
         }
 
