@@ -1,0 +1,105 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#f8f4ef;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    position:relative;
+}
+
+.background-overlay{
+    position:fixed;
+    inset:0;
+    background:
+        linear-gradient(rgba(255,255,255,.72),rgba(255,255,255,.72)),
+        url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=80");
+    background-size:cover;
+    background-position:center;
+    z-index:-2;
+}
+
+.welcome-card{
+    width:90%;
+    max-width:520px;
+    background:rgba(255,255,255,.88);
+    backdrop-filter:blur(8px);
+    border-radius:24px;
+    padding:45px 35px;
+    text-align:center;
+    box-shadow:0 20px 50px rgba(0,0,0,.15);
+}
+
+.welcome-text{
+    font-family:'Cormorant Garamond',serif;
+    font-size:30px;
+    color:#8d6e63;
+    margin-bottom:15px;
+}
+
+.couple-names{
+    font-family:'Cormorant Garamond',serif;
+    font-size:58px;
+    line-height:1.1;
+    color:#3d3d3d;
+    margin-bottom:25px;
+}
+
+.intro-message{
+    color:#666;
+    font-size:16px;
+    line-height:1.7;
+    margin-bottom:35px;
+}
+
+input{
+    width:100%;
+    padding:16px;
+    border:1px solid #ddd;
+    border-radius:14px;
+    font-size:16px;
+    margin-bottom:20px;
+    outline:none;
+    transition:.25s;
+}
+
+input:focus{
+    border-color:#b08968;
+}
+
+button{
+    width:100%;
+    padding:16px;
+    border:none;
+    border-radius:14px;
+    background:#b08968;
+    color:white;
+    font-size:17px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.25s;
+}
+
+button:hover{
+    transform:translateY(-2px);
+    background:#9c7355;
+}
+
+@media(max-width:600px){
+
+    .welcome-card{
+        padding:35px 25px;
+    }
+
+    .couple-names{
+        font-size:46px;
+    }
+
+}
