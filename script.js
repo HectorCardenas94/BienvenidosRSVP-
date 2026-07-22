@@ -34,24 +34,23 @@ async function searchFamily(familyName) {
 
     try {
 
-        const familiesRef = collection(db, "families");
-
-        const q = query(
-    familiesRef,
-    where("familyname", "==", familyName.toLowerCase())
+        const familyRef = doc(
+    db,
+    "families",
+    familyName.toLowerCase()
 );
 
-        const querySnapshot = await getDocs(q);
+const familySnap = await getDoc(familyRef);
 
-        if (querySnapshot.empty) {
+if (!familySnap.exists()) {
 
-            alert("Invitation not found.");
+    alert("Invitation not found.");
 
-            return;
+    return;
 
-        }
+}
 
-        const familyData = querySnapshot.docs[0].data();
+const familyData = familySnap.data();
 
         console.log(familyData);
 
