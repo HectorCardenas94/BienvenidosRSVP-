@@ -30,6 +30,41 @@ import {
 
 const app = document.querySelector(".welcome-card");
 
+async function searchFamily(familyName) {
+
+    try {
+
+        const familiesRef = collection(db, "families");
+
+        const q = query(
+            familiesRef,
+            where("familyName", "==", familyName)
+        );
+
+        const querySnapshot = await getDocs(q);
+
+        if (querySnapshot.empty) {
+
+            alert("Invitation not found.");
+
+            return;
+
+        }
+
+        const familyData = querySnapshot.docs[0].data();
+
+        console.log(familyData);
+
+        showRSVPPage(familyData);
+
+    } catch (error) {
+
+        console.error(error);
+
+    }
+
+}
+
 function showRSVPPage() {
 
     const familyName =
