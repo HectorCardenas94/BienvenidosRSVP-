@@ -190,3 +190,12 @@ function getFamilyData() {
 
 }
 
+async function saveFamily() {
+
+    const family = getFamilyData();
+
+    console.log(family);
+
+    alert("Family is ready to save!");
+
+}
