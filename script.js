@@ -34,13 +34,21 @@ async function searchFamily(familyName) {
 
     try {
 
-        const familyRef = doc(
+        console.log("Searching for:", familyName.toLowerCase());
+
+const familyRef = doc(
     db,
     "families",
     familyName.toLowerCase()
 );
 
 const familySnap = await getDoc(familyRef);
+
+console.log("Document exists:", familySnap.exists());
+
+if (familySnap.exists()) {
+    console.log(familySnap.data());
+}
 
 console.log("Searching document:", familyName.toLowerCase());
 
