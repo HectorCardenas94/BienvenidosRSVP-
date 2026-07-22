@@ -196,11 +196,44 @@ async function saveFamily() {
 
     const family = getFamilyData();
 
-    console.log(family);
+    if (family.familyName === "") {
 
-    alert("Family is ready to save!");
+        alert("Please enter a family name.");
+
+        return;
+
+    }
+
+    try {
+
+        await setDoc(
+
+            doc(
+                db,
+                "families",
+                family.familyName.toLowerCase()
+            ),
+
+            family
+
+        );
+
+        alert("Family saved successfully!");
+
+        showFamilyManager();
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+        alert("Unable to save family.");
+
+    }
 
 }
+
 
 const familyManagerButton =
     document.getElementById("familyManagerButton");
