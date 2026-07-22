@@ -400,3 +400,75 @@ function showResponses() {
     `;
 
 }
+
+const editWebsiteButton =
+    document.getElementById("editWebsiteButton");
+
+editWebsiteButton.addEventListener(
+    "click",
+    showWebsiteEditor
+);
+
+function showWebsiteEditor() {
+
+    contentArea.innerHTML = `
+
+        <h2>Website Settings</h2>
+
+        <br>
+
+        <label>Welcome Title</label>
+
+        <input
+            id="welcomeTitle"
+            type="text">
+
+        <br><br>
+
+        <label>Couple Names</label>
+
+        <input
+            id="coupleNames"
+            type="text">
+
+        <br><br>
+
+        <label>Welcome Message</label>
+
+        <textarea
+            id="welcomeMessage"
+            rows="4"
+            style="width:100%;padding:15px;border-radius:12px;"></textarea>
+
+        <br><br>
+
+        <label>Button Text</label>
+
+        <input
+            id="buttonText"
+            type="text">
+
+        <br><br>
+
+        <button id="saveWebsiteButton">
+
+            Save Website
+
+        </button>
+
+    `;
+
+    document
+        .getElementById("saveWebsiteButton")
+        .addEventListener(
+            "click",
+            saveWebsiteSettings
+        );
+
+}
+
+function saveWebsiteSettings() {
+
+    alert("Website settings saved!");
+
+}
