@@ -126,7 +126,9 @@ function showAddFamilyForm() {
     document
         .getElementById("addGuestButton")
         .addEventListener("click", addGuestField);
-
+document
+    .getElementById("saveFamilyButton")
+    .addEventListener("click", saveFamily);
 }
 
 function addGuestField() {
@@ -148,3 +150,43 @@ function addGuestField() {
     guestList.appendChild(input);
 
 }
+
+function getFamilyData() {
+
+    const familyName =
+        document.getElementById("familyName").value.trim();
+
+    const guestInputs =
+        document.querySelectorAll(".guestName");
+
+    const guests = [];
+
+    guestInputs.forEach(input => {
+
+        const name = input.value.trim();
+
+        if (name !== "") {
+
+            guests.push({
+                name: name,
+                attending: null
+            });
+
+        }
+
+    });
+
+    return {
+
+        familyName: familyName,
+
+        guests: guests,
+
+        hasResponded: false,
+
+        message: ""
+
+    };
+
+}
+
