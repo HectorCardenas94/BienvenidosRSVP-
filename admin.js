@@ -362,6 +362,13 @@ function showEditFamily(family = null) {
         </button>
 
     `;
+    
+    document
+    .getElementById("updateFamilyButton")
+    .addEventListener(
+        "click",
+        () => updateFamily(family.id)
+    );
 
     document
         .getElementById("editAddGuestButton")
@@ -731,6 +738,64 @@ async function loadFamily(id) {
     catch (error) {
 
         console.error(error);
+
+    }
+
+}
+
+async function updateFamily(id) {
+
+    const familyName =
+        document.getElementById("editFamilyName").value.trim();
+
+    const guestInputs =
+        document.querySelectorAll("#editGuestList .guestName");
+
+    const guests = [];
+
+    guestInputs.forEach(input => {
+
+        if (input.value.trim() !== "") {
+
+            guests.push({
+
+                name: input.value.trim(),
+
+                attending: null
+
+            });
+
+        }
+
+    });
+
+    try {
+
+        await updateDoc(
+
+            doc(db, "families", id),
+
+            {
+
+                familyName: familyName,
+
+                guests: guests
+
+            }
+
+        );
+
+        alert("Family updated!");
+
+        showFamilyManager();
+
+    }
+
+    catch(error){
+
+        console.error(error);
+
+        alert("Unable to update family.");
 
     }
 
