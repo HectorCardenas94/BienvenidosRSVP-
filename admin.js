@@ -70,3 +70,81 @@ async function loadDashboard() {
         guestCount;
 
 }
+
+const contentArea = document.getElementById("contentArea");
+
+const addFamilyButton = document.getElementById("addFamilyButton");
+
+addFamilyButton.addEventListener("click", showAddFamilyForm);
+
+function showAddFamilyForm() {
+
+    contentArea.innerHTML = `
+
+        <h2>Add New Family</h2>
+
+        <br>
+
+        <label>Family Name</label>
+
+        <input
+            type="text"
+            id="familyName"
+            placeholder="Ex: Cardenas">
+
+        <br><br>
+
+        <h3>Guests</h3>
+
+        <div id="guestList">
+
+            <input
+                type="text"
+                class="guestName"
+                placeholder="Guest Name">
+
+        </div>
+
+        <br>
+
+        <button id="addGuestButton">
+
+            + Add Another Guest
+
+        </button>
+
+        <br><br>
+
+        <button id="saveFamilyButton">
+
+            Save Family
+
+        </button>
+
+    `;
+
+    document
+        .getElementById("addGuestButton")
+        .addEventListener("click", addGuestField);
+
+}
+
+function addGuestField() {
+
+    const guestList =
+        document.getElementById("guestList");
+
+    const input =
+        document.createElement("input");
+
+    input.type = "text";
+
+    input.className = "guestName";
+
+    input.placeholder = "Guest Name";
+
+    input.style.marginTop = "10px";
+
+    guestList.appendChild(input);
+
+}
