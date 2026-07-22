@@ -1,5 +1,22 @@
 import { db } from "./firebase.js";
 
+const familyNameInput = document.getElementById("familyName");
+const findInvitationButton = document.getElementById("findInvitation");
+const rsvpContainer = document.getElementById("rsvpContainer");
+
+findInvitationButton.addEventListener("click", () => {
+
+    const familyName = familyNameInput.value.trim();
+
+    if (familyName === "") {
+        alert("Please enter your family name.");
+        return;
+    }
+
+    searchFamily(familyName);
+
+});
+
 import {
     doc,
     getDoc
