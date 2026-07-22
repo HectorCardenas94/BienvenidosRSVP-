@@ -1,3 +1,12 @@
+import { db } from "./firebase.js";
+
+import {
+    doc,
+    getDoc
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+
+
 const app = document.querySelector(".welcome-card");
 
 const guestDatabase = {
@@ -196,3 +205,43 @@ function showVenuePage() {
     `;
 
 }
+
+async function loadWebsiteContent() {
+
+    try {
+
+        const websiteRef = doc(db, "website", "content");
+
+        const websiteSnap = await getDoc(websiteRef);
+
+        if (!websiteSnap.exists()) {
+
+            console.log("Website content not found.");
+
+            return;
+
+        }
+
+        const content = websiteSnap.data();
+
+        document.querySelector(".welcome-text").textContent =
+            content.welcomeTitle;
+
+        document.querySelector(".couple-names").textContent =
+            content.coupleNames;
+
+        document.querySelector(".intro-message").textContent =
+            content.welcomeMessage;
+
+        document.getElementById("findInvitation").textContent =
+            content.buttonText;
+
+    } catch (error) {
+
+        console.error(error);
+
+    }
+
+}
+
+loadWebsiteContent();
