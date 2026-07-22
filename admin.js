@@ -527,3 +527,11 @@ function saveVenue() {
     alert("Venue saved!");
 
 }
+
+const venueButton =
+    document.getElementById("venueButton");
+
+venueButton.addEventListener(
+    "click",
+    showVenueEditor
+);
