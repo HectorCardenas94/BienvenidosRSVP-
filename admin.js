@@ -348,3 +348,55 @@ function addEditGuest() {
     guestList.appendChild(input);
 
 }
+
+const responsesButton =
+    document.getElementById("responsesButton");
+
+responsesButton.addEventListener(
+    "click",
+    showResponses
+);
+
+function showResponses() {
+
+    contentArea.innerHTML = `
+
+        <h2>RSVP Responses</h2>
+
+        <br>
+
+        <table style="width:100%;border-collapse:collapse;">
+
+            <thead>
+
+                <tr>
+
+                    <th>Family</th>
+                    <th>Status</th>
+                    <th>Guests</th>
+                    <th>Message</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="responseTable">
+
+                <tr>
+
+                    <td colspan="4"
+                        style="padding:25px;text-align:center;">
+
+                        No responses yet.
+
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    `;
+
+}
