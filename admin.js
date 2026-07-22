@@ -253,3 +253,31 @@ function showFamilyManager() {
     `;
 
 }
+
+function showPage(title, html) {
+
+    contentArea.innerHTML = `
+
+        <h2>${title}</h2>
+
+        <br>
+
+        ${html}
+
+    `;
+
+}
+
+function showPage(title, html) {
+
+    contentArea.innerHTML = `
+
+        <h2>${title}</h2>
+
+        <br>
+
+        ${html}
+
+    `;
+
+}
