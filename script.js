@@ -224,6 +224,10 @@ async function loadWebsiteContent() {
 
         const content = websiteSnap.data();
 
+console.log(content);
+
+alert(content.welcomeTitle);
+
         document.querySelector(".welcome-text").textContent =
             content.welcomeTitle;
 
