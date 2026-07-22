@@ -672,3 +672,36 @@ async function loadFamilies() {
 
 }
 
+async function deleteFamily(id) {
+
+    const confirmed = confirm(
+        "Delete this family?"
+    );
+
+    if (!confirmed) {
+
+        return;
+
+    }
+
+    try {
+
+        await deleteDoc(
+            doc(db, "families", id)
+        );
+
+        alert("Family deleted.");
+
+        loadFamilies();
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+        alert("Unable to delete family.");
+
+    }
+
+}
