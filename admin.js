@@ -472,3 +472,58 @@ function saveWebsiteSettings() {
     alert("Website settings saved!");
 
 }
+
+function showVenueEditor() {
+
+    contentArea.innerHTML = `
+
+        <h2>Venue Information</h2>
+
+        <br>
+
+        <label>Venue Name</label>
+
+        <input
+            id="venueName"
+            type="text">
+
+        <br><br>
+
+        <label>Venue Address</label>
+
+        <input
+            id="venueAddress"
+            type="text">
+
+        <br><br>
+
+        <label>Google Maps Link</label>
+
+        <input
+            id="googleMapsLink"
+            type="text">
+
+        <br><br>
+
+        <button id="saveVenueButton">
+
+            Save Venue
+
+        </button>
+
+    `;
+
+    document
+        .getElementById("saveVenueButton")
+        .addEventListener(
+            "click",
+            saveVenue
+        );
+
+}
+
+function saveVenue() {
+
+    alert("Venue saved!");
+
+}
