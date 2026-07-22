@@ -34,15 +34,18 @@ function showRSVPPage() {
         </p>
 
         <label style="display:block;text-align:left;margin-bottom:12px;">
-            <input type="checkbox"> Guest One
+            <input type="checkbox" class="guest">
+            Guest One
         </label>
 
         <label style="display:block;text-align:left;margin-bottom:12px;">
-            <input type="checkbox"> Guest Two
+            <input type="checkbox" class="guest">
+            Guest Two
         </label>
 
         <label style="display:block;text-align:left;margin-bottom:12px;">
-            <input type="checkbox"> Guest Three
+            <input type="checkbox" class="guest">
+            Guest Three
         </label>
 
         <textarea
@@ -65,6 +68,96 @@ function showRSVPPage() {
             style="margin-top:20px;"
         >
             Submit RSVP
+        </button>
+
+    `;
+
+    document
+        .getElementById("submitRSVP")
+        .addEventListener("click", showThankYouPage);
+
+}
+
+function showThankYouPage() {
+
+    const attending =
+        document.querySelectorAll(".guest:checked").length > 0;
+
+    if (attending) {
+
+        app.innerHTML = `
+
+            <h1 class="couple-names">
+                Thank You!
+            </h1>
+
+            <p class="intro-message">
+
+                We can't wait to celebrate with you!
+
+            </p>
+
+            <button id="venueButton">
+
+                View Venue
+
+            </button>
+
+        `;
+
+        document
+            .getElementById("venueButton")
+            .addEventListener("click", showVenuePage);
+
+    } else {
+
+        app.innerHTML = `
+
+            <h1 class="couple-names">
+                Thank You!
+            </h1>
+
+            <p class="intro-message">
+
+                We're sorry you can't make it,
+                but thank you for letting us know.
+
+            </p>
+
+        `;
+
+    }
+
+}
+
+function showVenuePage() {
+
+    app.innerHTML = `
+
+        <h1 class="couple-names">
+
+            Venue
+
+        </h1>
+
+        <p class="intro-message">
+
+            The Grand Ballroom
+
+            <br><br>
+
+            123 Wedding Avenue
+
+            <br>
+
+            Los Angeles, CA
+
+        </p>
+
+        <button>
+
+            Open Google Maps
+
         </button>
 
     `;
