@@ -639,7 +639,7 @@ async function loadFamilies() {
                 <td style="text-align:center;">
 
                     <button
-                        onclick="showEditFamily('${doc.id}')">
+                       onclick="loadFamily('${doc.id}')">
 
                         ✏️
 
@@ -703,6 +703,34 @@ async function deleteFamily(id) {
         console.error(error);
 
         alert("Unable to delete family.");
+
+    }
+
+}
+
+async function loadFamily(id) {
+
+    try {
+
+        const ref = doc(db, "families", id);
+
+        const snapshot = await getDoc(ref);
+
+        if (!snapshot.exists()) {
+
+            alert("Family not found.");
+
+            return;
+
+        }
+
+        showEditFamily(snapshot.data());
+
+    }
+
+    catch (error) {
+
+        console.error(error);
 
     }
 
