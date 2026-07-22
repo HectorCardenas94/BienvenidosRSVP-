@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Bienvenidos Admin</title>
+
+<link rel="stylesheet" href="admin.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="login-container" id="loginScreen">
+
+    <div class="login-card">
+
+        <h1>
+
+            Bienvenidos
+
+        </h1>
+
+        <p>
+
+            Admin Login
+
+        </p>
+
+        <input
+            type="email"
+            id="email"
+            placeholder="Email">
+
+        <input
+            type="password"
+            id="password"
+            placeholder="Password">
+
+        <button id="loginButton">
+
+            Login
+
+        </button>
+
+    </div>
+
+</div>
+
+<div
+class="dashboard hidden"
+id="dashboard">
+
+<header>
+
+<h1>
+
+Bienvenidos Admin
+
+</h1>
+
+</header>
+
+<section class="stats">
+
+<div class="stat-card">
+
+<h2 id="familyCount">
+
+0
+
+</h2>
+
+<p>
+
+Families
+
+</p>
+
+</div>
+
+<div class="stat-card">
+
+<h2 id="guestCount">
+
+0
+
+</h2>
+
+<p>
+
+Guests
+
+</p>
+
+</div>
+
+<div class="stat-card">
+
+<h2 id="confirmedCount">
+
+0
+
+</h2>
+
+<p>
+
+Confirmed
+
+</p>
+
+</div>
+
+<div class="stat-card">
+
+<h2 id="pendingCount">
+
+0
+
+</h2>
+
+<p>
+
+Pending
+
+</p>
+
+</div>
+
+</section>
+
+<section class="actions">
+
+<button id="addFamilyButton">
+
+＋ Add Family
+
+</button>
+
+<button id="editWebsiteButton">
+
+Website Settings
+
+</button>
+
+</section>
+
+<section
+id="contentArea">
+
+<h2>
+
+Welcome
+
+</h2>
+
+<p>
+
+Choose an option above to begin.
+
+</p>
+
+</section>
+
+</div>
+
+<script
+type="module"
+src="admin.js">
+
+</script>
+
+</body>
+
+</html>
+
