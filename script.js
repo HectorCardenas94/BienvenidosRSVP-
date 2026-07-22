@@ -65,46 +65,49 @@ async function searchFamily(familyName) {
 
 }
 
-function showRSVPPage() {
-
-    const familyName =
-        document
-            .getElementById("familyName")
-            .value
-            .trim()
-            .toLowerCase();
-
-    if (familyName === "") {
-
-        alert("Please enter your family name.");
-
-        return;
-
-    }
-
-    if (!guestDatabase[familyName]) {
-
-        alert("Invitation not found.");
-
-        return;
-
-    }
+function showRSVPPage(familyData) {
 
     let guestHTML = "";
 
-    guestDatabase[familyName].forEach(person => {
+    familyData.guests.forEach((guest, index) => {
 
         guestHTML += `
 
-        <label style="display:block;text-align:left;margin-bottom:12px;">
+        <div class="guest-card">
 
-            <input
-                type="checkbox"
-                class="guest">
+            <h2>
 
-            ${person}
+                ${guest.firstName} ${guest.lastName}
 
-        </label>
+            </h2>
+
+            <p>Will you be attending?</p>
+
+            <label>
+
+                <input
+                    type="radio"
+                    name="guest${index}"
+                    value="yes">
+
+                Joyfully Accepts
+
+            </label>
+
+            <br><br>
+
+            <label>
+
+                <input
+                    type="radio"
+                    name="guest${index}"
+                    value="no">
+
+                Regretfully Declines
+
+            </label>
+
+        </div>
 
         `;
 
@@ -120,13 +123,13 @@ function showRSVPPage() {
 
         <h1 class="couple-names">
 
-            ${familyName.charAt(0).toUpperCase() + familyName.slice(1)}
+            ${familyData.familyName} Family
 
         </h1>
 
         <p class="intro-message">
 
-            Select everyone who will be attending.
+            Please let us know who will be joining us.
 
         </p>
 
@@ -139,7 +142,7 @@ function showRSVPPage() {
                 width:100%;
                 height:140px;
                 padding:15px;
-                margin-top:20px;
+                margin-top:25px;
                 border-radius:14px;
                 border:1px solid #ddd;
                 resize:none;
@@ -148,7 +151,7 @@ function showRSVPPage() {
 
         <button
             id="submitRSVP"
-            style="margin-top:20px;">
+            style="margin-top:25px;">
 
             Submit RSVP
 
@@ -158,7 +161,10 @@ function showRSVPPage() {
 
     document
         .getElementById("submitRSVP")
-        .addEventListener("click", showThankYouPage);
+        .addEventListener(
+            "click",
+            showThankYouPage
+        );
 
 }
 
