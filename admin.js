@@ -5,7 +5,9 @@ import {
     getDocs,
     doc,
     setDoc,
-    deleteDoc
+    deleteDoc,
+    getDoc,
+    updateDoc
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
 const loginScreen =
