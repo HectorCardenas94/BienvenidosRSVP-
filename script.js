@@ -26,31 +26,6 @@ import {
 
 const app = document.querySelector(".welcome-card");
 
-const guestDatabase = {
-
-    cardenas: [
-        "Hector",
-        "Jessica",
-        "Mateo"
-    ],
-
-    rodriguez: [
-        "Juan",
-        "Maria",
-        "Carlos"
-    ],
-
-    garcia: [
-        "Luis",
-        "Ana"
-    ]
-
-};
-
-document
-    .getElementById("findInvitation")
-    .addEventListener("click", showRSVPPage);
-
 function showRSVPPage() {
 
     const familyName =
