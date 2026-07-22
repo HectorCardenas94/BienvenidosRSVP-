@@ -246,7 +246,7 @@ familyManagerButton.addEventListener(
 function showFamilyManager() {
 
     contentArea.innerHTML = `
-
+    
         <h2>Family Manager</h2>
 
         <br>
@@ -286,6 +286,8 @@ function showFamilyManager() {
         </table>
 
     `;
+    
+    loadFamilies();
 
 }
 
@@ -570,3 +572,102 @@ venueButton.addEventListener(
     "click",
     showVenueEditor
 );
+
+async function loadFamilies() {
+
+    const table =
+        document.getElementById("familyTableBody");
+
+    table.innerHTML = "";
+
+    try {
+
+        const snapshot =
+            await getDocs(collection(db, "families"));
+
+        if (snapshot.empty) {
+
+            table.innerHTML = `
+
+                <tr>
+
+                    <td colspan="5"
+                        style="text-align:center;padding:25px;">
+
+                        No families found.
+
+                    </td>
+
+                </tr>
+
+            `;
+
+            return;
+
+        }
+
+        snapshot.forEach(doc => {
+
+            const family = doc.data();
+
+            const row =
+                document.createElement("tr");
+
+            row.innerHTML = `
+
+                <td>${family.familyName}</td>
+
+                <td style="text-align:center;">
+
+                    ${family.guests.length}
+
+                </td>
+
+                <td style="text-align:center;">
+
+                    ${
+                        family.hasResponded
+                            ? "Responded"
+                            : "Pending"
+                    }
+
+                </td>
+
+                <td style="text-align:center;">
+
+                    <button
+                        onclick="showEditFamily('${doc.id}')">
+
+                        ✏️
+
+                    </button>
+
+                </td>
+
+                <td style="text-align:center;">
+
+                    <button
+                        onclick="deleteFamily('${doc.id}')">
+
+                        🗑️
+
+                    </button>
+
+                </td>
+
+            `;
+
+            table.appendChild(row);
+
+        });
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+    }
+
+}
+
