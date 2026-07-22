@@ -171,7 +171,7 @@ function showRSVPPage(familyData) {
 function showThankYouPage() {
 
     const attending =
-        document.querySelectorAll(".guest:checked").length > 0;
+    document.querySelectorAll('input[type="radio"][value="yes"]:checked').length > 0;
 
     if (attending) {
 
