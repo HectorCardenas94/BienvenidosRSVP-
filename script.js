@@ -37,9 +37,9 @@ async function searchFamily(familyName) {
         const familiesRef = collection(db, "families");
 
         const q = query(
-            familiesRef,
-            where("familyName", "==", familyName)
-        );
+    familiesRef,
+    where("familyname", "==", familyName.toLowerCase())
+);
 
         const querySnapshot = await getDocs(q);
 
